@@ -194,6 +194,7 @@ Resources
 Support
 -------
 
+
 __Bugs and requests__: submit them through the project's issues tracker.<br>
 [![Issues](http://img.shields.io/github/issues/rstacruz/nprogress.svg)]( https://github.com/rstacruz/nprogress/issues )
 
